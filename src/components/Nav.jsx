@@ -25,10 +25,10 @@ function Nav() {
                <AiOutlineMenu className="w-6 h-6"/>
             </button>
             <div className="menu hidden md:flex items-center justify-between w-auto ">
-               <button onClick={() => scrollTo('Hero')} className="mx-4 rounded hover:bg-mPurple py-2 px-3 w-[90px] text-center duration-500 cursor-pointer"> Inicio </button>
-               <button onClick={() => scrollTo('Stack')} className="mx-4 rounded hover:bg-mPurple py-2 px-3 w-[90px] text-center duration-500 cursor-pointer"> Stack </button>
-               <button onClick={() => scrollTo('Proyects')} className="mx-4 rounded hover:bg-mPurple py-2 px-3 w-[90px] text-center duration-500 cursor-pointer"> Proyectos </button>
-               <button onClick={() => scrollTo('Contact')} className="mx-4 rounded hover:bg-mPurple py-2 px-3 w-[120px] text-center duration-500 cursor-pointer"> Contactame </button>
+               <button onClick={() => scrollTo('Hero')} className="mx-3 rounded hover:bg-mPurple py-2 px-3 w-[90px] text-center duration-500 cursor-pointer"> Inicio </button>
+               <button onClick={() => scrollTo('Stack')} className="mx-3 rounded hover:bg-mPurple py-2 px-3 w-[90px] text-center duration-500 cursor-pointer"> Stack </button>
+               <button onClick={() => scrollTo('Proyects')} className="mx-3 rounded hover:bg-mPurple py-2 px-3 w-[90px] text-center duration-500 cursor-pointer"> Proyectos </button>
+               <button onClick={() => scrollTo('Contact')} className="mx-3 rounded hover:bg-mPurple py-2 px-3 w-[120px] text-center duration-500 cursor-pointer"> Contactame </button>
             </div>
             </div>
             <div className={isOpen ? 'transition-all' : 'hidden transition-all'}>
