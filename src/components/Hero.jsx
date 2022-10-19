@@ -18,7 +18,7 @@ function Hero() {
                creatividad para poder resolver problemas.
             </p>
             <div className="flex items-center justify-center mt-6">
-               <a download href='./Jorge_Herrera_CV2022.pdf' className="mr-4 font-semibold text-mWhite bg-mPurple  hover:bg-mBlue duration-500 rounded-xl px-6 py-1">
+               <a download href='Jorge_Herrera_CV2022.pdf' className="mr-4 font-semibold text-mWhite bg-mPurple  hover:bg-mBlue duration-500 rounded-xl px-6 py-1">
                   Descarga mi CV
                </a>
                <a href={ghUrl} target='_blank'> <AiFillGithub className="bg-mPurple rounded-2xl w-[32px] h-[32px] m-2 p-1 text-mWhite hover:bg-mBlue duration-500"/> </a>
