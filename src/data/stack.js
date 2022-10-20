@@ -32,7 +32,7 @@ export const datos = [
    {
       id: "6",
       name: "Bootstrap",
-      image: "imgs/Bootstrap.svg",
+      image: "imgs/bootstrap.svg",
    },
    {
       id: "7",
