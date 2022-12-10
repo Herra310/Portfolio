@@ -10,6 +10,7 @@ function Proyects() {
          img={data.img}
          description={data.description}
          url={data.repo}
+         dep={data.deploy}
       />
    ));
    return (

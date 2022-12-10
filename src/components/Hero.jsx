@@ -26,9 +26,9 @@ function Hero() {
             </div>
          </div>
 
-         <div className="image m-6">
-            <img className="max-w-sm" src={Heroimg} alt="" />
-            <p className="text-[10px] text-[#717171] mr-3 text-right">
+         <div className="image m-5">
+            <img className="max-w-xs" src={Heroimg} alt="" />
+            <p className="text-[9px] text-[#717171] mr-3 text-right">
                <a href="https://www.freepik.com/free-vector/developer-activity-concept-illustration_7401752.htm#query=front%20end%20developer&position=2&from_view=keyword">
                   Image by storyset
                </a>
