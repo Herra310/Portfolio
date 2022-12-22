@@ -25,7 +25,7 @@ function Proyects() {
             <Carousel className="max-w-[40%]"
                showStatus={false}
                infiniteLoop={true}
-               autoPlay={false}
+               autoPlay={true}
                stopOnHover={true}
                centerSlidePercentage={100}
                swipeable={true}
