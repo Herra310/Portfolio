@@ -1,7 +1,7 @@
 export const p = [
     {
         id: 0,
-        name:'Componente con efecto de paralaje',
+        name:'Paralax component',
         img:'proyectos/Paralax.gif',
         description:'un componente de muestra creado en vue, sobre unos tenis nike con un bonito efecto de paralaje cuando se mueve el raton!.',
         repo:'https://github.com/Herra310/Vue-card',

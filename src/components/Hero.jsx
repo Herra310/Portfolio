@@ -14,8 +14,8 @@ function Hero() {
             </h1>
             <p className="text-md text-[#2f2f2f] font-normal italic text-center">
                Soy un estudiante de ing. en sistemas computacionales con un gusto por el
-               desarrollo web, que busca constante aprendizaje y usar su
-               creatividad para poder resolver problemas.
+               desarrollo web, busco desenvolverme profesionalmente, usar mi
+               creatividad para poder resolver problemas e impactar en mi entorno.
             </p>
             <div className="flex items-center justify-center mt-6">
                <a download href='Jorge_Herrera_CV2022.pdf' className="mr-4 font-semibold text-mWhite bg-mPurple  hover:bg-mBlue duration-500 rounded-xl px-6 py-1">
