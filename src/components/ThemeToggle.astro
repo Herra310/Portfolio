@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+---
+
+<button
+  type="button"
+  data-theme-toggle
+  class="grid size-9 shrink-0 cursor-pointer place-items-center rounded-full text-muted transition-colors duration-300 hover:bg-chip hover:text-fg"
+  aria-label="Cambiar entre tema claro y oscuro"
+>
+  <span class="hidden dark:block"><Icon name="sun" class="size-[18px]" /></span>
+  <span class="block dark:hidden"><Icon name="moon" class="size-[18px]" /></span>
+</button>
+
+<script>
+  document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const root = document.documentElement;
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      try {
+        localStorage.setItem('theme', next);
+      } catch {}
+    });
+  });
+</script>

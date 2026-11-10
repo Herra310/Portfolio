@@ -1,0 +1,23 @@
+---
+import SectionTitle from './SectionTitle.astro';
+import { stack } from '../data/stack';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+
+<section id="stack" class="px-4 py-20 sm:px-6 lg:py-28">
+  <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-12">
+    <SectionTitle class="lg:col-span-4" title="Stack" intro="Tecnologías con las que trabajo." />
+
+    <ul class="flex flex-wrap content-start gap-2.5 lg:col-span-8">
+      {
+        stack.map((tech) => (
+          <li class="chip flex items-center gap-2.5 rounded-full py-2 pr-5 pl-2.5 text-[15px] transition-colors duration-300 hover:border-accent-text/40">
+            <img src={`${base}${tech.image}`} alt="" class="size-6 object-contain" loading="lazy" />
+            {tech.name}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ------------------------------------------------------------------
+   Tokens: claro por defecto; oscuro con [data-theme="dark"]
+------------------------------------------------------------------- */
+:root {
+  --bg: #f4f4f8;
+  --fg: #14141b;
+  --muted: #5a5a69;
+  --line: rgb(24 22 48 / 0.09);
+  --accent: #7447f5;
+  --accent-text: #6236e6;
+  --accent-fg: #ffffff;
+  --sky: #2e8fc4;
+
+  --glass: rgb(255 255 255 / 0.52);
+  --glass-strong: rgb(255 255 255 / 0.78);
+  --glass-line: rgb(40 30 90 / 0.08);
+  --glass-edge: rgb(255 255 255 / 0.95);
+  --glass-shine: rgb(255 255 255 / 0.55);
+  --chip: rgb(255 255 255 / 0.6);
+  --shadow:
+    0 18px 40px -18px rgb(52 34 120 / 0.22),
+    0 4px 10px -4px rgb(52 34 120 / 0.08);
+
+  --field-1: rgb(135 88 255 / 0.32);
+  --field-2: rgb(92 184 228 / 0.34);
+  --field-3: rgb(206 170 255 / 0.36);
+
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0d0d14;
+  --fg: #ececf3;
+  --muted: #a3a3b5;
+  --line: rgb(255 255 255 / 0.08);
+  --accent: #7447f5;
+  --accent-text: #b39dff;
+  --accent-fg: #ffffff;
+  --sky: #7cc8ee;
+
+  --glass: rgb(34 33 48 / 0.46);
+  --glass-strong: rgb(34 33 48 / 0.72);
+  --glass-line: rgb(255 255 255 / 0.07);
+  --glass-edge: rgb(255 255 255 / 0.14);
+  --glass-shine: rgb(255 255 255 / 0.1);
+  --chip: rgb(255 255 255 / 0.05);
+  --shadow:
+    0 20px 44px -20px rgb(0 0 0 / 0.6),
+    0 4px 10px -4px rgb(0 0 0 / 0.3);
+
+  --field-1: rgb(135 88 255 / 0.22);
+  --field-2: rgb(92 184 228 / 0.14);
+  --field-3: rgb(170 120 255 / 0.12);
+
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-accent-fg: var(--accent-fg);
+  --color-sky: var(--sky);
+  --color-chip: var(--chip);
+  --color-glass-strong: var(--glass-strong);
+  --font-sans: "Onest", ui-sans-serif, system-ui, sans-serif;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ------------------------------------------------------------------
+   Base y superficies del navegador
+------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  scrollbar-color: var(--line) transparent;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+summary {
+  list-style: none;
+}
+
+/* ------------------------------------------------------------------
+   Campos de color detrás del vidrio
+------------------------------------------------------------------- */
+.color-fields {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.color-fields span {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform;
+}
+.color-fields span:nth-child(1) {
+  width: clamp(360px, 52vw, 820px);
+  aspect-ratio: 1;
+  top: -14vw;
+  right: -10vw;
+  background: var(--field-1);
+  animation: drift-a 38s ease-in-out infinite alternate;
+}
+.color-fields span:nth-child(2) {
+  width: clamp(320px, 44vw, 700px);
+  aspect-ratio: 1;
+  top: 34vh;
+  left: -18vw;
+  background: var(--field-2);
+  animation: drift-b 46s ease-in-out infinite alternate;
+}
+.color-fields span:nth-child(3) {
+  width: clamp(300px, 38vw, 620px);
+  aspect-ratio: 1;
+  top: 60vh;
+  right: 6vw;
+  background: var(--field-3);
+  animation: drift-c 52s ease-in-out infinite alternate;
+}
+
+@keyframes drift-a {
+  to {
+    transform: translate3d(-10vw, 8vh, 0) scale(1.08);
+  }
+}
+@keyframes drift-b {
+  to {
+    transform: translate3d(14vw, -6vh, 0) scale(0.94);
+  }
+}
+@keyframes drift-c {
+  to {
+    transform: translate3d(-12vw, -10vh, 0) scale(1.1);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Vidrio: translúcido, borde de luz, sombra suave, reflejo especular
+------------------------------------------------------------------- */
+@layer components {
+  .glass {
+    position: relative;
+    isolation: isolate;
+    background: var(--glass);
+    border: 1px solid var(--glass-line);
+    box-shadow:
+      inset 0 1px 0 var(--glass-edge),
+      var(--shadow);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+    backdrop-filter: blur(22px) saturate(180%);
+  }
+
+  .glass::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(
+      420px circle at var(--mx, 20%) var(--my, 0%),
+      var(--glass-shine),
+      transparent 55%
+    );
+    transition: background-position 0.2s;
+  }
+
+  .chip {
+    background: var(--chip);
+    border: 1px solid var(--line);
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass {
+    background: var(--glass-strong);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Movimiento: entrada de la tarjeta y cápsula que se compacta
+------------------------------------------------------------------- */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+    filter: blur(10px);
+  }
+}
+
+.settle {
+  animation: settle 1.1s var(--ease-out-expo) 0.15s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .color-fields span,
+  .settle {
+    animation: none;
+  }
+}

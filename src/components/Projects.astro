@@ -1,0 +1,107 @@
+---
+import Icon from './Icon.astro';
+import SectionTitle from './SectionTitle.astro';
+import { projects } from '../data/projects';
+import { profile } from '../data/profile';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const [featured, ...rest] = projects;
+---
+
+<section id="proyectos" class="px-4 py-20 sm:px-6 lg:py-28">
+  <div class="mx-auto max-w-6xl">
+    <SectionTitle title="Proyectos" />
+
+    <!-- Destacado -->
+    <article class="mt-12 grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
+      <div class="frame lg:col-span-7">
+        <img
+          src={`${base}${featured.img}`}
+          alt={`Vista previa de ${featured.name}`}
+          loading="lazy"
+          decoding="async"
+          class="aspect-[16/10] w-full object-cover object-top"
+        />
+      </div>
+      <div class="lg:col-span-5">
+        <h3 class="text-2xl font-semibold tracking-tight sm:text-3xl">{featured.name}</h3>
+        <p class="mt-3 leading-relaxed text-muted">{featured.description}</p>
+        <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+          {
+            featured.deploy && (
+              <a
+                href={featured.deploy}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-fg transition duration-300 hover:brightness-110"
+              >
+                Ver online
+                <Icon name="external" class="size-4" />
+              </a>
+            )
+          }
+          <a
+            href={featured.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-sm font-medium hover:text-accent-text"
+          >
+            <Icon name="github" class="size-[18px]" />
+            Ver código
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Resto -->
+    <div class="mt-20 grid gap-x-10 gap-y-16 sm:grid-cols-2">
+      {
+        rest.map((p) => (
+          <article class="group">
+            <div class="frame">
+              <img
+                src={`${base}${p.img}`}
+                alt={`Vista previa de ${p.name}`}
+                loading="lazy"
+                decoding="async"
+                class="aspect-[16/10] w-full object-cover object-top transition duration-700 ease-out group-hover:scale-[1.02]"
+              />
+            </div>
+            <h3 class="mt-6 text-xl font-semibold tracking-tight">{p.name}</h3>
+            <p class="mt-2 max-w-[52ch] leading-relaxed text-muted">{p.description}</p>
+            <a
+              href={p.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 inline-flex items-center gap-2 text-sm font-medium hover:text-accent-text"
+            >
+              <Icon name="github" class="size-[18px]" />
+              Ver código
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="mt-20 text-muted">
+      Siéntete libre de ver el código de otros proyectos en mi
+      <a
+        href={profile.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-medium text-fg underline decoration-accent-text/50 decoration-1 underline-offset-4 hover:decoration-accent-text"
+        >perfil de GitHub</a
+      >.
+    </p>
+  </div>
+</section>
+
+<style>
+  .frame {
+    overflow: hidden;
+    border-radius: 24px;
+    border: 1px solid var(--line);
+    background: var(--chip);
+    box-shadow: var(--shadow);
+  }
+</style>

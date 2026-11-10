@@ -1,0 +1,17 @@
+export const stack = [
+  { name: 'C#', image: 'imgs/csharp.svg' },
+  { name: '.NET', image: 'imgs/dotnet.svg' },
+  { name: 'Vue 3', image: 'imgs/vuejs.svg' },
+  { name: 'Docker', image: 'imgs/docker.svg' },
+  { name: 'JavaScript', image: 'imgs/javascript.svg' },
+  { name: 'Node.js', image: 'imgs/nodejs.svg' },
+  { name: 'HTML5', image: 'imgs/html5.svg' },
+  { name: 'CSS', image: 'imgs/css-3.svg' },
+  { name: 'TailwindCSS', image: 'imgs/tailwind-css.svg' },
+  { name: 'Sass', image: 'imgs/sass.svg' },
+  { name: 'Bootstrap', image: 'imgs/bootstrap.svg' },
+  { name: 'Vite', image: 'imgs/vite.svg' },
+  { name: 'Python', image: 'imgs/python.svg' },
+  { name: 'SQL Server', image: 'imgs/microsoft-sql.svg' },
+  { name: 'Git', image: 'imgs/git.svg' },
+];

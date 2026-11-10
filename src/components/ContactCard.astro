@@ -1,0 +1,61 @@
+---
+import Icon from './Icon.astro';
+import { profile } from '../data/profile';
+
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
+const rows = [
+  { icon: 'mail', label: 'Correo', value: profile.email, href: `mailto:${profile.email}`, external: false },
+  { icon: 'linkedin', label: 'LinkedIn', value: 'Jorge Arath Herrera', href: profile.linkedin, external: true },
+  { icon: 'github', label: 'GitHub', value: '@Herra310', href: profile.github, external: true },
+] as const;
+---
+
+<aside class="glass settle w-full rounded-[28px] p-5 sm:p-6" aria-label="Tarjeta de contacto">
+  <div class="flex items-center gap-4">
+    <span
+      class="grid size-14 shrink-0 place-items-center rounded-full bg-[linear-gradient(140deg,#8758ff,#5cb8e4)] text-lg font-semibold text-white shadow-[0_6px_16px_-6px_rgb(116_71_245/0.6)]"
+      aria-hidden="true">JH</span
+    >
+    <div class="min-w-0">
+      <p class="text-lg font-semibold tracking-tight">{profile.name}</p>
+      <p class="text-sm text-muted">{profile.title} · {profile.experience}</p>
+    </div>
+  </div>
+
+  <ul class="mt-5 divide-y divide-line border-y border-line">
+    {
+      rows.map((r) => (
+        <li>
+          <a
+            href={r.href}
+            target={r.external ? '_blank' : undefined}
+            rel={r.external ? 'noopener noreferrer' : undefined}
+            class="group -mx-2 flex items-center gap-3 rounded-xl px-2 py-3 transition-colors duration-300 hover:bg-chip"
+          >
+            <span class="grid size-9 shrink-0 place-items-center rounded-full bg-chip text-accent-text">
+              <Icon name={r.icon} class="size-[18px]" />
+            </span>
+            <span class="min-w-0 flex-1">
+              <span class="block text-xs text-muted">{r.label}</span>
+              <span class="block truncate text-[15px]">{r.value}</span>
+            </span>
+            <Icon
+              name="chevron"
+              class="size-4 text-muted transition-transform duration-300 group-hover:translate-x-0.5"
+            />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <a
+    href={`${base}${profile.cv}`}
+    download
+    class="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-accent px-5 py-3 text-[15px] font-medium text-accent-fg shadow-[0_10px_24px_-12px_rgb(116_71_245/0.8)] transition duration-300 hover:-translate-y-px hover:brightness-110"
+  >
+    <Icon name="download" class="size-[18px]" />
+    Descargar CV
+  </a>
+</aside>

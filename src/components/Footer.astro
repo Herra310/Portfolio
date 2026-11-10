@@ -1,0 +1,15 @@
+---
+import { profile } from '../data/profile';
+const year = new Date().getFullYear();
+---
+
+<footer class="px-4 pb-10 sm:px-6">
+  <div
+    class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 border-t border-line pt-8 text-sm text-muted sm:flex-row"
+  >
+    <p>© {year} {profile.name}</p>
+    <p>
+      Hecho con <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="hover:text-fg">Astro</a>
+    </p>
+  </div>
+</footer>
