@@ -15,11 +15,14 @@
   --accent-fg: #ffffff;
   --sky: #2e8fc4;
 
-  --glass: rgb(255 255 255 / 0.52);
+  --glass: rgb(255 255 255 / 0.42);
   --glass-strong: rgb(255 255 255 / 0.78);
+  --glass-solid: rgb(250 250 253 / 0.92);
   --glass-line: rgb(40 30 90 / 0.08);
   --glass-edge: rgb(255 255 255 / 0.95);
   --glass-shine: rgb(255 255 255 / 0.55);
+  --glass-rim: rgb(255 255 255 / 0.95);
+  --glass-rim-soft: rgb(255 255 255 / 0.25);
   --chip: rgb(255 255 255 / 0.6);
   --shadow:
     0 18px 40px -18px rgb(52 34 120 / 0.22),
@@ -42,19 +45,22 @@
   --accent-fg: #ffffff;
   --sky: #7cc8ee;
 
-  --glass: rgb(34 33 48 / 0.46);
+  --glass: rgb(34 33 48 / 0.36);
   --glass-strong: rgb(34 33 48 / 0.72);
+  --glass-solid: rgb(26 25 38 / 0.92);
   --glass-line: rgb(255 255 255 / 0.07);
   --glass-edge: rgb(255 255 255 / 0.14);
   --glass-shine: rgb(255 255 255 / 0.1);
+  --glass-rim: rgb(255 255 255 / 0.32);
+  --glass-rim-soft: rgb(255 255 255 / 0.04);
   --chip: rgb(255 255 255 / 0.05);
   --shadow:
     0 20px 44px -20px rgb(0 0 0 / 0.6),
     0 4px 10px -4px rgb(0 0 0 / 0.3);
 
-  --field-1: rgb(135 88 255 / 0.22);
-  --field-2: rgb(92 184 228 / 0.14);
-  --field-3: rgb(170 120 255 / 0.12);
+  --field-1: rgb(135 88 255 / 0.32);
+  --field-2: rgb(92 184 228 / 0.22);
+  --field-3: rgb(170 120 255 / 0.22);
 
   color-scheme: dark;
 }
@@ -148,8 +154,8 @@ summary {
 .color-fields span:nth-child(3) {
   width: clamp(300px, 38vw, 620px);
   aspect-ratio: 1;
-  top: 60vh;
-  right: 6vw;
+  top: 42vh;
+  right: 16vw;
   background: var(--field-3);
   animation: drift-c 52s ease-in-out infinite alternate;
 }
@@ -199,6 +205,45 @@ summary {
       transparent 55%
     );
     transition: background-position 0.2s;
+  }
+
+  /* Borde especular: luz en el borde superior izquierdo y el inferior derecho */
+  .glass::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    padding: 1px;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+      135deg,
+      var(--glass-rim) 0%,
+      var(--glass-rim-soft) 32%,
+      transparent 55%,
+      var(--glass-rim-soft) 78%,
+      var(--glass-rim) 100%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+  }
+
+  /* Estados del vidrio interactivo */
+  a.glass {
+    transition:
+      background-color 0.3s,
+      transform 0.3s var(--ease-out-expo);
+  }
+  a.glass:hover {
+    background: var(--glass-strong);
+  }
+  a.glass:active {
+    transform: scale(0.98);
   }
 
   .chip {

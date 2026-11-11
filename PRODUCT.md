@@ -29,7 +29,7 @@ Desarrollador web con experiencia en C#, .NET y Vue 3 que integra la IA (Claude 
 
 ## Evidence on Hand
 - Proyectos con GIF de demostración en `public/proyectos/` (Paralax, Weather, Tic Tac Toe, Perfil animado, PokeApp); son de etapa temprana.
-- CV en `public/Jorge_Herrera_CV2022.pdf` (desactualizado; pendiente de reemplazo por el usuario).
+- CV en `public/Jorge_Herrera_CV.pdf` (actualizado en noviembre de 2026, diseño compatible con ATS).
 - Logos del stack en `public/imgs/`.
 - No hay foto personal, testimonios, clientes ni métricas: no inventarlos.
 

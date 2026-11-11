@@ -19,9 +19,9 @@ OWN-WORLD: Fondo claro #f4f4f8 (oscuro #0d0d14) con tres campos de color difumin
 
 STORY: En segundos el visitante sabe quién es (desarrollador web, 3 años, C#/.NET/Vue 3), ve que integra IA en su trabajo, revisa proyectos y lo contacta o descarga el CV desde la tarjeta.
 
-FIRST VIEWPORT: Cápsula de navegación flotante centrada arriba. Izquierda (≈7/12): h1 "Desarrollador web." grande, bio a 60ch, píldoras de vidrio con el stack principal. Derecha (≈5/12): tarjeta de contacto de vidrio con monograma JH, nombre, rol, filas Correo/LinkedIn/GitHub tipo lista iOS y botón principal "Descargar CV" en violeta. Signature: la cápsula se compacta al hacer scroll y el vidrio lleva un reflejo especular que sigue al puntero.
+FIRST VIEWPORT: Cápsula de navegación flotante centrada arriba. Izquierda (≈7/12): h1 "Desarrollador web." grande, bio a 60ch, píldoras de vidrio con el stack principal. Derecha (≈5/12): tarjeta de contacto de vidrio con monograma JH, nombre, años de experiencia (el rol ya lo dice el h1), filas Correo/LinkedIn/GitHub tipo lista iOS y botón principal "Descargar CV" en violeta. Signature: la cápsula se compacta al hacer scroll y el vidrio lleva un reflejo especular que sigue al puntero.
 
 FORM: Liquid glass (fijado por el usuario, sin roll); posición 1 por pin del brief.
-seed: none (unavailable)
+seed: none (roll skipped: direction pinned by the user, concept-seed not run)
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
